@@ -1,0 +1,79 @@
+# Select image from docker hub
+image: node:10.15.0-jessie
+
+before_script:
+  - bash ci/docker-install-certs.sh
+  - bash ci/docker-install-dependencies.sh
+
+stages:
+  - build
+  - analysis
+  - deploy
+
+build:
+  variables:
+    GIT_SSL_NO_VERIFY: "true"
+  stage: build
+  tags:
+    - phpdev3
+    - docker
+  script:
+    - echo "Building the app from source for each environment"
+    - ls -al
+    - pwd
+    - echo ${CI_COMMIT_REF_NAME}
+    - declare -A BUILDDISTMAP=(   [dev]=dev [test]=test [master]=prod ) # [branch]=/dist/*
+    - declare -A BUILDTARGETMAP=( [dev]=dev [test]=test [master]=prod ) # [branch]=DEPLOY_TARGET
+    - declare -A BUILDENVMAP=(    [dev]=dev [test]=test [master]=prod ) # [branch]=EMBER_ENV
+    - echo ${BUILDENVMAP[$CI_COMMIT_REF_NAME]}
+    - >
+      if [ ! -z "${BUILDENVMAP[$CI_COMMIT_REF_NAME]}" ];
+      then
+          echo "Building app DEPLOY_TARGET=${BUILDTARGETMAP[$CI_COMMIT_REF_NAME]} ./node_modules/.bin/ember b -e ${BUILDENVMAP[$CI_COMMIT_REF_NAME]} --output-path=dist/${BUILDDISTMAP[$CI_COMMIT_REF_NAME]};"
+          DEPLOY_TARGET=${BUILDTARGETMAP[$CI_COMMIT_REF_NAME]} ./node_modules/.bin/ember b -e ${BUILDENVMAP[$CI_COMMIT_REF_NAME]} --output-path=dist/${BUILDDISTMAP[$CI_COMMIT_REF_NAME]};
+      fi
+    - ls -al
+    - ls -al dist
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+  only:
+    - test
+
+
+analysis:sonarqube-scan:
+  variables:
+    GIT_STRATEGY: clone
+  stage: analysis
+  tags:
+    - phpdev3
+    - shell
+  script:
+    - echo "Kicking SonarQube Scanner"
+    ## - /data/apps/sonar-scanner/bin/sonar-scanner
+
+deploy:test:
+  variables:
+    DEPLOYMENT_DIR: "/data/webs/NewsTest/frontend/"
+    DEPLOYMENT_ENV: test
+    GIT_STRATEGY: clone
+  stage: deploy
+  tags:
+    - phpdev3
+    - shell
+  script:
+    - echo "Deploy to test server"
+    - echo ${CI_COMMIT_REF_NAME}
+    - ls -al dist/${CI_COMMIT_REF_NAME}
+    - shopt -s dotglob && sudo rm -rf ${DEPLOYMENT_DIR}* && shopt -u dotglob
+    - ls -al ${DEPLOYMENT_DIR}
+    - shopt -s dotglob && sudo cp -R dist/${DEPLOYMENT_ENV}/* ${DEPLOYMENT_DIR} && shopt -u dotglob
+    - sudo chown -R gitlab-runner.webmgr ${DEPLOYMENT_DIR}*
+    - ls -al ${DEPLOYMENT_DIR}
+  environment:
+    name: test
+    url: http://140.215.104.210/NewsTest/frontend/
+  only:
+    - test
+

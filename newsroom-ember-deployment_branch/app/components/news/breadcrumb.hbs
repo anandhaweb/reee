@@ -1,0 +1,106 @@
+{{log @modelName}}
+{{#if  @modelName}}
+  {{#if isBreadCumHide}}
+      <div class={{concat 'ember-bdcum' '  ' (if isBreadCumHide 'app-card-primary')  }}>
+        <spna>Reclamation /</spna>
+        <span>News & Multimedia</span>
+            {{#let (concat 'news-room' '.' @modelName) as | stateArg|}}
+                {{#if @newsRelaseFilter}}
+                    <span> / </span>
+                    <span class="bdcum-link" {{on "click" (fn this.setFilter 'breadcum' @setQueryParams stateArg)}} >
+                      {{#if @isNewsStory}}
+                          News Stories
+                        {{else}}
+                          {{@modelName}}
+                      {{/if}}
+                      </span>
+                    <span> / </span>
+                    {{#if @isArchive}}
+                      News Stories - Archive
+                    {{/if}}
+                    {{#if @isNewsStory}}
+                      {{#if (eq @newsRelaseFilter 1)}}
+                          {{!-- <span class="lp">News Stories</span> --}}
+                        {{else}}
+                          <span class="lp">News Stories - {{@newsRelaseFilter}}</span>
+                      {{/if}}
+                      {{else}}
+                      <span class="lp">{{@modelName}} - {{@newsRelaseFilter}}</span>
+                    {{/if}}
+                    
+                  {{else}}
+                    {{#if @titletext}}
+                        <span> / </span>
+                        <span class="bdcum-link" {{on "click" (fn this.setCurrentTab1 stateArg )}} >{{@modelName}}</span>
+                        <span> / </span>
+                        <span>{{@modelName}} -</span><span>{{space-to-hypen-word-limit @titletext}}</span>
+                    {{else}}
+                      {{#if @modelName}}
+                        {{#if @isArchive}}
+                          <span> / </span>
+                          <span class="bdcum-link" {{on "click" (fn this.setFilter 'breadcum' @setQueryParams stateArg)}} >{{@modelName}}</span>
+                          <span> / </span>
+                          <span class="lp">{{@modelName}} - Archive</span>
+                        {{else}}
+                            {{#if isNewsStory}}
+                              <span> / </span>
+                              <span>News Stories</span>
+                            {{else}}
+                              <span> / </span>
+                              {{@modelName}}
+                            {{/if}}
+                          
+                        {{/if}}
+                      {{else}}
+                          <span class="de"> / </span>
+                          {{this.parentModel}}
+                      {{/if}}
+                          
+                    {{/if}}
+                {{/if}}
+            {{/let}}
+      </div>
+      {{else}} 
+      <div class='ember-bdcum' >
+      <span >Reclamation /</span>
+        <span>News & Multimedia</span>
+        {{#let (concat 'news-room' '.' @modelName) as | stateArg|}}
+                {{#if @newsRelaseFilter}}
+                    <span> / </span>
+                    <span class="bdcum-link" {{on "click" (fn this.setFilter 'breadcum' @setQueryParams stateArg)}} >{{@modelName}}</span>
+                    <span> / </span>
+                    <span class="lp">{{@modelName}} - {{@newsRelaseFilter}}</span>
+                  {{else}}
+                    {{#if @titletext}}
+                        <span> / </span>
+                        {{#if @isNewsStory}}
+                        <span class="bdcum-link" {{on "click" (fn this.setCurrentTab1 stateArg )}} >News Stories</span>
+                          {{else}}
+                          <span class="bdcum-link" {{on "click" (fn this.setCurrentTab1 stateArg )}} >{{@modelName}}</span>
+                        {{/if}}
+                        <span> / </span>
+                        {{#if @isNewsStory}}
+                          <span>News Stories -</span><span>{{space-to-hypen-word-limit @titletext}}</span>
+                          {{else}}
+                          <span>{{@modelName}} -</span><span>{{space-to-hypen-word-limit @titletext}}</span>
+                        {{/if}}
+                    {{else}}
+                      {{#if @modelName}}
+                        <span> / </span>
+                          {{@modelName}}
+                      {{else}}
+                          <span class="de"> / </span>
+                          {{this.parentModel}}
+                      {{/if}}
+                          
+                    {{/if}}
+                {{/if}}
+            {{/let}}
+        </div>
+      {{/if}}
+  {{else}}
+  <div class='ember-bdcum  app-card-primary'>
+  <spna>Reclamation /</spna>
+  <span>News & Multimedia</span>
+  </div>
+{{/if}}

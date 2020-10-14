@@ -1,0 +1,81 @@
+<News::breadcrumb
+   @modelName = {{@modelName }}
+   @titletext ={{this.titletext}}
+   @listBreadCrumb ={{false}}
+   @isNewsStory ={{this.isNewsStory}}
+/>
+<div class="deatils-wrap">
+    {{#if (eq @modelName 'news-release')}}
+        <div class="details-wrap-item">
+                 <div>
+                    <div class="header">{{@detailsViewItems.title}}</div>
+                        <div class="small-header"><span>Media Contact: </span>
+                         {{@detailsViewItems.field_primary_contact_name}} {{@detailsViewItems.field_primary_contact_phone}} {{@detailsViewItems.field_primary_contact_email}}
+                        </div>
+                    <div>{{@detailsViewItems.field_secondary_contact_name}} {{@detailsViewItems.field_secondary_contact_phone}} {{@detailsViewItems.field_secondary_contact_email}}</div>
+                    <div class="pt-20">For Release: {{moment-format @detailsViewItems.field_date_to_be_published "ll"}}</div>
+                    <div class="profile-img pull-left ">
+                        {{#if @detailsViewItems.field_image.url}}
+                          <img src={{@detailsViewItems.field_image.url}} alt="currently vacant.">
+                        {{else}}
+                            <img src='../assets/images/notfound.gif' alt="currently vacant.">
+                        {{/if}}
+                    </div>
+                    <div>
+                        <div class="profile-info">
+                            {{@detailsViewItems.body}}
+                        </div>
+                    </div> 
+                </div>
+        </div>
+   {{/if}}
+    {{#if (eq @modelName 'biography')}}
+        <div class="details-wrap-item">
+            <div class="profile-img pull-left ">
+                {{#if @detailsViewItems.field_image.url}}
+                    <img src={{@detailsViewItems.field_image.url}} alt="currently vacant.">
+                {{else}}
+                    <img src='../assets/images/notfound.gif' alt="currently vacant.">
+                {{/if}}
+            </div>
+            <div>
+                <div class="header">{{@detailsViewItems.field_biography_name}}</div>
+                <div class="header">{{@detailsViewItems.title}}</div>
+                <div class="profile-info">
+                    {{@detailsViewItems.body}}
+                </div>
+                <div class="pt-20"> Updated: {{moment-format @detailsViewItems.field_date_to_be_published "ll"}}</div>
+            </div>
+        </div>
+   {{/if}}
+   {{#if (eq @modelName 'speech')}}
+        <div class="details-wrap-item">
+            <div>
+                <div class="header">{{@detailsViewItems.title}}</div>
+                <div class="text-align pt-20">Remarks Delivered By:</div>
+                <div class="text-align">{{@detailsViewItems.field_person_giving_speech}}, {{@detailsViewItems.field_region}}</div>
+                <div class="text-align pb-20">{{moment-format @detailsViewItems.field_date_to_be_published "ll"}}</div>
+                <div class="profile-info">
+                    {{@detailsViewItems.body}}
+                </div>
+            </div>
+        </div>
+   {{/if}}
+   {{#if (eq @modelName 'congressional-testimony')}}
+        <div class="details-wrap-item">
+            <div>
+                <div class="header-2 text-align">{{@detailsViewItems.title}}</div>
+                <div class="header-2 text-align">{{@detailsViewItems.field_name}}</div>
+                <div class="header-2 text-align">{{@detailsViewItems.field_position}}</div>   
+                <div class="header-2 text-align">{{@detailsViewItems.field_bill_number}}</div> 
+                <div class="header-2 text-align">{{@detailsViewItems.field_committee}}</div> 
+                <div class="header-2 text-align">{{@detailsViewItems.field_sub_committee}}</div> 
+                <div class="header-2 text-align">{{@detailsViewItems.field_senate_or_house}}</div> 
+                <div class="header-2 text-align">{{moment-format @detailsViewItems.field_date "ll"}}</div> 
+                <div class="profile-info">
+                    {{@detailsViewItems.body}}
+                </div>
+            </div>
+        </div>
+   {{/if}}
+</div>

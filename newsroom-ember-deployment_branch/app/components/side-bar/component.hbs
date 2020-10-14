@@ -1,0 +1,92 @@
+<div class="Main-nav">
+  <div class="LeftNav" role="navigation">
+    <span class="LeftNav-title">NEWS & MULTIMEDIA</span>
+    <ul class="LeftNav-list">
+
+      {{#each this.sideBarItems as |sideBarItem|}}
+        {{#let (eq selectedItem sideBarItem.label) as |isRouteActive|}}
+        {{#if (eq sideBarItem.label 'News & Multimedia')}}
+           <li class={{if isRouteIndex "-active"}} {{on "click" (fn this.setMultimedia )}}>{{sideBarItem.label}}</li>
+         {{else}}
+          <li
+            class="{{if isRouteActive "-active"}} menu-active" id={{slice-space sideBarItem.label}}
+          >
+          {{#if (or (eq sideBarItem.label 'Fact Sheet') (eq sideBarItem.label 'Organization Chart') (eq sideBarItem.label 'Photos') (eq sideBarItem.label 'Multimedia') (eq sideBarItem.label 'Social Media') )}}
+            <a href={{sideBarItem.routeName}} target="_blank" >{{sideBarItem.label}}</a>
+            {{else}}
+              {{#if (eq sideBarItem.label 'News Stories')}}
+
+                  <LinkTo
+                  @route={{sideBarItem.routeName}}
+                   {{on "click" (fn this.setCurrentTab sideBarItem.label )}}
+                  {{on "click" (fn this.setFilter 'field_story' 1 sideBarItem.routeName )}}
+                 
+                >
+                  {{sideBarItem.label}}
+                </LinkTo>
+              {{else}}
+                  <LinkTo
+                @route={{sideBarItem.routeName}}
+                {{on "click" (fn this.setCurrentTab sideBarItem.label )}}
+                {{on "click" (fn this.setFilter 'filterBy' filter.propertyName sideBarItem.routeName )}}
+              >
+                {{sideBarItem.label}}
+              </LinkTo>
+              {{/if}}
+            {{/if}}
+              <ul class="sub-nav-title {{if isRouteActive "show-nav-item"}}">
+                {{#each sideBarItem.filters as |filter|}}
+                 {{#let (eq selectedNav filter.propertyName) as |activeState|}}
+                  <li>
+                    <a class={{if activeState "activeNav"}}
+                      href="javascript:void(0)"
+                      {{on "click" (fn this.setCurrentNav filter.propertyName)}}
+                      {{on "click" (fn this.setFilter 'filterBy' filter.propertyName sideBarItem.routeName )}}
+                    >
+                      Filter By 
+                          {{filter.propertyName}}
+                    </a>
+
+                    {{#if (equal @queryParams.filterBy filter.propertyName)}}
+                      <ul class="side-bar-sub-nav">
+                        {{#each filter.subOptions as |subOption|}}
+                          <li class="cursor-pointer">
+                            <a
+                              href="javascript:void(0)"
+                             {{on "click" (fn this.setFilter filter.propertyName subOption sideBarItem.routeName)}}
+                            >
+                              {{subOption}}
+                            </a>
+                          <div  >
+                            {{!-- <input type="checkbox" id={{subOption}} name={{subOption}} {{on "click" (fn this.toggleFilter )}} {{on "click" (fn this.setFilter filter.propertyName subOption sideBarItem.routeName)}} > --}}
+                            {{!-- <label  {{on "click" (fn this.setFilter filter.propertyName subOption sideBarItem.routeName)}}> {{subOption}}</label> --}}
+                          </div>
+                          </li>
+                        {{/each}}
+                      </ul>
+                    {{/if}}
+                  </li>
+                {{/let}}
+                {{/each}}
+                {{#if (not (or (eq sideBarItem.label 'Fact Sheet')(eq sideBarItem.label 'Leadership Bios')))}}
+                  {{#let (eq archiveState sideBarItem.label) as | archiveState|}}
+                    <li>
+                      <a class={{if archiveState "archiveNav"}}
+                        href="javascript:void(0)"
+                        {{on "click" (fn this.setCurrentArchi sideBarItem.label)}}
+                        {{on "click" (fn this.setFilter sideBarItem.routeName 'archive' sideBarItem.routeName)}}
+                      >
+                        Archived {{sideBarItem.label}}
+                      </a>
+                    </li>
+                    {{/let}}
+                {{/if}}
+              </ul>
+          </li>
+         {{/if}}
+         
+        {{/let}}
+      {{/each}}
+    </ul>
+  </div>
+</div>

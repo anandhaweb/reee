@@ -1,0 +1,49 @@
+
+
+<div class="capitalize main-header">
+  {{#if (eq this.header 'biography')}}
+      Reclamation Leadership Biographies
+      {{else}}
+        {{#if (eq this.header 'speech')}}
+           Speeches
+           {{else}}
+              {{#if (eq this.header 'news-release')}}
+               {{this.newsRelaseFilter}} News Releases 
+               {{else}}
+                 {{slice-hypen this.header}} 
+              {{/if}}
+
+        {{/if}}
+        
+  {{/if}}
+</div>
+<div
+  {{did-insert (fn this.loader @modelName @queryParams @archiveYear 0)}}
+  {{did-update (fn this.loader @modelName @queryParams @archiveYear 0)}}
+></div>
+  {{#if (gt this.detailsViewItems.length 0)}}
+  <News::Detail
+      @detailsViewItems = {{this.detailsViewItems}}
+      @modelName={{@modelName}}
+  />
+  {{else}}
+    <News::List
+      @newsItems={{this.newsItems}}
+      @filters={{@queryParams}}
+      @trimItemBody={{true}}
+      @modelName={{@modelName}}
+      @setArchiveYear={{@setArchiveYear}}
+      @archiveYear={{@archiveYear}}
+      @isContentLoaded = {{this.isContentLoaded}}
+    />
+  {{/if}}
+  {{#if (eq this.newsItems.length 10)}}  
+    <div class="pagination-footer">
+      <span class="prev" {{on "click" (fn this.setPrevTab @modelName @queryParams @archiveYear)}}>Previous </span>
+      <span class="next" {{on "click" (fn this.setNextTab @modelName @queryParams @archiveYear)}}>Next</span>
+    </div>
+  {{/if}}
+{{!-- {{#if paginationLoder}}
+  <div class="backdrop-screen">
+  </div>
+{{/if}} --}}

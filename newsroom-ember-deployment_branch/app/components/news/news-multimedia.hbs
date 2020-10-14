@@ -1,0 +1,42 @@
+<h1>News Releases</h1>
+<div class="multimedia-block">
+    <News::List
+        @newsItems={{this.newsItems}}
+        @trimItemBody={{true}}
+        @isIndexPage={{true}}
+        @modelName={{'news-release'}}
+        @isContentLoaded = {{this.isContentLoaded}}
+    />
+    {{#if this.newsItemVideo}}
+    <div class="video-Main-well">
+        <ul class="MediaList MediaList-wrap">
+            <li class="MediaList-item">
+                <div class="text-align-left">
+                    <a class="list-title-header" href="javascript:void;">{{this.newsItemVideo.title}}</a>
+                </div>
+                <div class="pt-20">
+                    {{#if this.newsItemVideo.field_video}}
+                    <iframe width="100%" height="310px" src="{{this.newsItemVideo.field_video}}">
+                    </iframe>
+                    {{/if}}
+                </div>
+                <div class="bio-body">
+                    <p>
+                        {{html-safe (trim-string this.newsItemVideo.body 300)}}...
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    {{/if}}
+</div>
+<div class="twitter-block">
+<a class="twitter-timeline" data-height="600" href="https://twitter.com/usbr?ref_src=twsrc%5Etfw"></a>
+<div class="twitter-wrap">
+    <a class="list-title-header" href="https://www.usbr.gov/newsroom/stories/detail.cfm?RecordID=49900">
+        <span>Statement of Project Construction Cost and Repayment Statements Are Available from Reclamation</span>
+    </a>
+</div>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</div>

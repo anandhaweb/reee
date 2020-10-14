@@ -1,0 +1,266 @@
+
+<div class="MainContainer">
+	<div class="Header" id="top" role="banner">
+		<div class="Header-wrap container">
+			<a class="Header-logo" href="https://www.usbr.gov" title="Reclamation Home">
+				<img src="https://www.usbr.gov/img/logo-white.png" alt="Bureau of Reclamation: Managing Water in the West">
+			</a>
+			<div class="Header-social">
+				<ul>
+					<li>
+						<a href="https://www.facebook.com/bureau.of.reclamation" class="critical-icon, tooltip-ng2"
+							title="Facebook" target="new">
+							<span class="icon-facebook" aria-hidden="true"></span>
+						</a>
+					</li>
+					<li>
+						<a href="https://twitter.com/usbr" class="critical-icon, tooltip-ng2" title="Twitter" target="new">
+							<span class="icon-twitter" aria-hidden="true"></span>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.youtube.com/user/reclamation" class="critical-icon, tooltip-ng2" title="YouTube"
+							target="new">
+							<span class="icon-youtube" aria-hidden="true"></span>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.flickr.com/photos/usbr/" class="critical-icon, tooltip-ng2" title="Flickr"
+							target="new">
+							<span class="icon-flickr" aria-hidden="true"></span>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.pinterest.com/usbrgov/" class="critical-icon, tooltip-ng2" title="Pinterest"
+							target="new">
+							<span class="icon-pinterest" aria-hidden="true"></span>
+						</a>
+					</li>
+					<li>
+						<a href="https://instagram.com/bureau_of_reclamation" class="critical-icon, tooltip-ng2" title="Instagram"
+							target="new">
+							<span class="icon-instagram" aria-hidden="true"></span>
+						</a>
+					</li>
+					<li>
+						<a href="https://www.usbr.gov/newsroom/rssxml/rssfeeds.html" class="critical-icon" title="RSS"
+							target="new">
+							<span class="icon-rss" aria-hidden="true"></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<button class="Nav-toggle">Menu</button>
+		</div>
+	</div>
+	
+	<div class="Nav" id="Nav">
+		<div class="Nav-wrap" {{on-click-outside (action "outSideClick")}}>
+			<ol class="Nav-list resetList" role="navigation" aria-label="Primary Navigation">
+				<li class="Nav-item Water" {{on "click" (fn this.menuTabClick 'Water')}}> <a class="Nav-item-link" href="#">Water &amp; Power</a>
+					<ol class="Nav-sublist resetList" aria-label="submenu">
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/projects/facilities.php?type=Dam"
+								class="Nav-sublist-link" tabindex="">Dams</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/projects/facilities.php?type=Powerplant"
+								class="Nav-sublist-link" tabindex="">Powerplants</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/projects/facilities.php?type=Project"
+								class="Nav-sublist-link" tabindex="">Projects</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/main/agrihydro.html" class="Nav-sublist-link"
+								tabindex="">Agrimet/Hydromet</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/main/water/" class="Nav-sublist-link"
+								tabindex="">Water Operations</a></li>
+					</ol>
+				</li>
+				<li class="Nav-item Resources" {{on "click" (fn this.menuTabClick 'Resources')}}> <a class="Nav-item-link" href="#">Resources &amp; Research</a>
+					<ol class="Nav-sublist resetList" aria-label="submenu">
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/main/programs/" class="Nav-sublist-link"
+								tabindex="-1">Programs</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/tsc/" class="Nav-sublist-link"
+								tabindex="-1">Technical Service Center</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/research/" class="Nav-sublist-link"
+								tabindex="-1">Research &amp; Development</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/recman/" class="Nav-sublist-link"
+								tabindex="-1">Reclamation Manual</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/environmental/" class="Nav-sublist-link"
+								tabindex="-1">Environmental Resources/Reports</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/library/" class="Nav-sublist-link"
+								tabindex="-1">Library</a></li>
+					</ol>
+				</li>
+				<li class="Nav-item About" {{on "click" (fn this.menuTabClick 'About')}}> <a class="Nav-item-link" href="#">About Us</a>
+					<ol class="Nav-sublist resetList" aria-label="submenu">
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/main/about/mission.html"
+								class="Nav-sublist-link" tabindex="-1">Mission</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/main/about/fact.html" class="Nav-sublist-link"
+								tabindex="-1">Fact Sheet</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/newsroom/presskit/bios/detail.cfm?recordid=1"
+								class="Nav-sublist-link" tabindex="-1">Commissioner</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/main/offices.html" class="Nav-sublist-link"
+								tabindex="-1">Addresses/Contacts</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/main/images/br_org_chart.pdf"
+								class="Nav-sublist-link" tabindex="-1">Organizational Chart</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/newsroom/presskit/bios/bios.cfm"
+								class="Nav-sublist-link" tabindex="-1">Leadership Bios</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/hr/" class="Nav-sublist-link"
+								tabindex="-1">Employment</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/main/comments.cfm" class="Nav-sublist-link"
+								tabindex="-1">Contact</a></li>
+					</ol>
+				</li>
+				<li class="Nav-item Recreation" {{on "click" (fn this.menuTabClick 'Recreation')}}> <a class="Nav-item-link" href="#">Recreation &amp; Public Use</a>
+					<ol class="Nav-sublist resetList" aria-label="submenu">
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/recreation/" class="Nav-sublist-link"
+								tabindex="-1">Find Recreation</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.recreation.gov" class="Nav-sublist-link"
+								tabindex="-1">Recreation.gov</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/lands/" class="Nav-sublist-link"
+								tabindex="-1">Public Use</a></li>
+					</ol>
+				</li>
+				<li class="Nav-item news" {{on "click" (fn this.menuTabClick 'news')}}> <a class="Nav-item-link" href="javascript:void(0);" >News &amp; Multimedia</a>
+					<ol class="Nav-sublist resetList" aria-label="submenu">
+						<li class="Nav-sublist-item">
+							<a href="javascript:void(0);" class="Nav-sublist-link"
+								tabindex="-1" {{on "click" (fn this.menuListClick 'news-room.news-release' 'News-Releases' )}} >News Releases</a>
+						</li>
+						<li class="Nav-sublist-item"><a href="javascript:void(0);" {{on "click" (fn this.menuListClick 'news-room.news-release' 'News-Stories')}} class="Nav-sublist-link"
+								tabindex="-1">News Stories</a></li>
+						<li class="Nav-sublist-item"><a href="javascript:void(0);" {{on "click" (fn this.menuListClick 'news-room.speech' 'Speeches')}} class="Nav-sublist-link"
+								tabindex="-1">Speeches</a></li>
+						<li class="Nav-sublist-item"><a href="javascript:void(0);" {{on "click" (fn this.menuListClick 'news-room.congressional-testimony' 'Congressional-Testimony')}} class="Nav-sublist-link"
+								tabindex="-1">Congressional Testimony</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/newsroom/presskit/factsheet/"
+								class="Nav-sublist-link" tabindex="-1">Fact Sheets</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/main/multimedia/index.html#photos"
+								class="Nav-sublist-link" tabindex="-1">Photos</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/main/multimedia/index.html#video"
+								class="Nav-sublist-link" tabindex="-1">Multimedia</a></li>
+						<li class="Nav-sublist-item"><a href="https://www.usbr.gov/main/multimedia/index.html#social"
+								class="Nav-sublist-link" tabindex="-1">Social Media</a></li>
+					</ol>
+				</li>
+			</ol>
+
+			<div class="Header-search" id="recSearch">
+				<form method="get" action="https://search.usa.gov/search" role="search">
+					<input type="hidden" name="affiliate" value="Reclamation">
+					<label class="visuallyhidden" for="query">Search</label>
+					<input type="text" name="query" id="query" placeholder="Search">
+					<button type="submit" id="search">Search</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="Main" id="Main" role="main" style="background-image: url('https://www.usbr.gov/img/bg-banner.jpg')">
+		<div class="Main-wrap" style="background-image: url('https://www.usbr.gov/img/bg-footer.jpg')">
+			<div class="Banner Banner--full">
+				<div class="Banner-content">
+					<div class="container">
+						{{#if isIndexPage}}
+							<h1>News & Multimedia</h1>
+							<p>News, Speeches, Fact Sheets and Multimedia from the Bureau of Reclamation</p>
+							{{else}}
+							<h1>News & Multimedia</h1>
+						{{/if}}
+					
+					</div>
+				</div>
+			</div>
+			<div class="Main-content container clearfix ember-main-content">
+					<News::breadcrumb
+						@queryParams = {{this.queryParamValues}}
+						@newsRelaseFilter = {{this.newsRelaseFilter}}
+						@modelName = {{this.modelBrName}}
+						@setQueryParams={{fn this.setQueryParams}}
+						@listBreadCrumb = {{true}}
+						@isArchive = {{this.isArchive}}
+						@isNewsStory = {{this.isNewsStory}}
+					/>
+				<SideBar
+					@setQueryParams={{fn this.setQueryParams}}
+					@setModelValue={{fn this.setModelValue}}
+					@queryParams={{this.queryParamValues}}
+				/>
+
+				{{outlet}}
+				
+			</div>
+		</div>
+
+		<div class="Footer" id="Footer" role="contentinfo">
+			<div class="container">
+				<h2 class="visuallyhidden">More Information about the Bureau of Reclamation</h2>
+				<div class="Footer-social">
+					<h2>Stay in Touch</h2>
+					<ul>
+						<li>
+							<a href="https://www.facebook.com/bureau.of.reclamation" class="critical-icon, tooltip-ng"
+								title="Facebook" target="new">
+								<span class="icon-facebook" aria-hidden="true"></span>
+							</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/usbr" class="critical-icon, tooltip-ng" title="Twitter" target="new">
+								<span class="icon-twitter" aria-hidden="true"></span>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.youtube.com/user/reclamation" class="critical-icon, tooltip-ng" title="YouTube"
+								target="new">
+								<span class="icon-youtube" aria-hidden="true"></span>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.flickr.com/photos/usbr/" class="critical-icon, tooltip-ng" title="Flickr"
+								target="new">
+								<span class="icon-flickr" aria-hidden="true"></span>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.pinterest.com/usbrgov/" class="critical-icon, tooltip-ng" title="Pinterest"
+								target="new">
+								<span class="icon-pinterest" aria-hidden="true"></span>
+							</a>
+						</li>
+						<li>
+							<a href="https://instagram.com/bureau_of_reclamation/" class="critical-icon, tooltip-ng"
+								title="Instagram" target="new">
+								<span class="icon-instagram" aria-hidden="true"></span>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.usbr.gov/newsroom/rssxml/rssfeeds.html" class="critical-icon" title="RSS"
+								target="new">
+								<span class="icon-rss" aria-hidden="true"></span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="Footer-links">
+					<ul>
+						<li><a href="https://www.usbr.gov/main/comments.cfm">Contact Us</a></li>
+						<li><a href="https://www.usbr.gov/main/index/">Site Index</a></li>
+					</ul>
+					<ul>
+						<li><a href="https://www.usbr.gov/main/access.html">Accessibility</a></li>
+						<li><a href="https://www.usbr.gov/main/disclaimer.html">Disclaimer</a></li>
+						<li><a href="https://www.doi.gov/" title="Department of the Interior">DOI</a></li>
+						<li><a href="https://www.usbr.gov/foia/">FOIA</a></li>
+						<li><a href="https://www.doi.gov/pmb/eeo/reports-repository">No Fear Act</a></li>
+						<li><a href="https://www.usbr.gov/main/notices.html">Notices</a></li>
+						<li><a href="https://www.usbr.gov/main/privacy.html">Privacy Policy</a></li>
+						<li><a href="https://www.usbr.gov/main/qoi/">Quality of Information</a></li>
+						<li><a href="https://www.recreation.gov/" target="new">Recreation.gov</a></li>
+						<li><a href="https://www.usa.gov/" target="new">USA.gov</a></li>
+					</ul>
+				</div>
+				
+				<a class="Footer-logo" href="https://www.usbr.gov"><img src="https://www.usbr.gov/img/seal-white.png"
+						alt="U.S. Department of the Interior - Bureau of Reclamation"></a>
+			</div>
+		</div>
+		
+	</div>
+</div>

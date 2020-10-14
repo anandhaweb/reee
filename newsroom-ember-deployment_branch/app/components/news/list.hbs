@@ -1,0 +1,53 @@
+<div class="Main-well">
+  {{#if this.isViewingArchiveByYear}}
+  <ul class="archive-year-option">
+        {{#each this.archiveYearOptions as |year|}}
+        <li>
+          <a
+            href="javascript:void(0)"
+            {{on "click" (fn @setArchiveYear year)}}
+          >
+            {{year}}
+          </a>
+          </li>
+        {{/each}}
+  </ul>
+  {{/if}}
+  <ul class="MediaList">
+
+    {{#if this.filteredNews}}
+      {{#each this.filteredNews as |newsItem|}}
+        <li class="MediaList-item">
+          <News::item
+            @newsItem={{newsItem}}
+            @trimItemBody={{true}}
+            @isIndexPage={{@isIndexPage}}
+            
+          />
+        </li>
+      {{/each}}
+    {{else}}
+        {{#if @isContentLoaded}}
+            <div> No Data Found</div>
+          {{else}}
+            {{#let (string-contains 'archive' this.router.currentRouteName) as |isRouteActive|}}
+            <li class="clear loader-icon">
+              {{#if isRouteActive}}
+              <img src="../../frontend/assets/images/loading.gif" alt="loading..">
+              {{else}}
+    
+              {{#if isMediaPage}}
+                <img src="./assets/images/loading.gif" alt="loading..">
+                {{else}}
+                <img src="../frontend/assets/images/loading.gif" alt="loading..">
+              {{/if}}
+              {{/if}}
+            </li>
+            {{/let}} 
+        {{/if}}
+        
+    {{/if}}
+   
+
+  </ul>
+</div>
