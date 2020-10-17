@@ -35,6 +35,10 @@ Router.map(function() {
       this.route('show',{ path: '/:title' });
     });
 
+    this.route('video', function() {
+      this.route('show',{ path: '/:title' });
+    });
+
 
     this.route('page', { path: '/:page_slug' });
     this.route('404');

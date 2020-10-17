@@ -136,7 +136,7 @@ a#statement_project{
   width: 77%;
   margin-top: 10px;
 }
-.deatils-wrap {
+.deatils-wrap{
   width: 83%;
   float: left;
   border-top: 1px solid #ccc;
@@ -202,6 +202,7 @@ a#statement_project{
   }
   .twitter-block {
     width: 25%;
+    
   }
 }
 
@@ -246,6 +247,14 @@ a#statement_project{
 .mt-0 {
   margin-top: 0;
 }
-.timeline-InformationCircle-widgetParent {
-  display: none;
+
+.read-more {
+  font-size: 16px;
+  font-style: italic;
+}
+.list-wrap-right p {
+  display: inline;
+}
+.bio-body p {
+  display: inline;
 }

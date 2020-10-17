@@ -9,7 +9,7 @@ export default class NewsMultimediaComponent extends NewsLoaderComponent {
     @tracked
     newsItems
     @tracked
-  isContentLoaded = false
+    isContentLoaded = false
     constructor() { 
       super(...arguments)
       window.history.replaceState({},{}, window.location.pathname);

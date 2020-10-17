@@ -137,8 +137,7 @@ export default class NewsLoaderComponent extends Component {
 				return true;
 			}
 			if(queryParams == 'indexRouteVideo'){
-				debugger
-				that.newsItemVideo = item.toArray()[2]
+				that.newsItemVideo = item.toArray()[0]
 				return true;
 			}
 			that.detailsViewItems = [];

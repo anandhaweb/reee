@@ -17,12 +17,12 @@ export default class NewsDetailComponent extends Component {
         if(this.router.currentRoute.attributes != undefined){
             title = this.router.currentRoute.attributes.title;
             this.titletext = title;
-        } else if(this.router.currentRoute.patams.title != undefined){
-            title = this.router.currentRoute.patams.title;
+        } else if(this.router.currentRoute.params.title != undefined){
+            title = this.router.currentRoute.params.title;
             this.titletext = title;
         }
         
-        let url = spaceToHypen(title);
+        //let url = spaceToHypen(title);
        // history.pushState({}, null, url);
       }
      

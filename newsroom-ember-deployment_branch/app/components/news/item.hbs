@@ -1,4 +1,11 @@
-{{#if (eq @newsItem._internalModel.modelName 'biography')}}
+{{log @newsItem._internalModel.modelName}}
+{{#if (eq @newsItem._internalModel.modelName 'video')}}
+  <News::detail
+  @modelName = {{'video'}}
+  @detailsViewItems = {{@model}}
+  />
+  {{else}}
+  {{#if (eq @newsItem._internalModel.modelName 'biography')}}
     <div class="bio-image-wrap">
       {{#if @newsItem.field_image.url}}
        <img src={{@newsItem.field_image.url}} alt="currently vacant.">
@@ -10,16 +17,13 @@
       <LinkTo @route="news-room.biography.show"  @model={{@newsItem}}>
         <div  class="list-title-header"><span>{{@newsItem.field_biography_name}}</span>,<span>{{@newsItem.title}}</span></div>
       </LinkTo>
-
-
-      {{!-- <h3>{{#link-to "news-room.biography.show" @model={{@newsItem}} }}{{@newsItem.title}}{{/link-to}}</h3> --}}
-      {{!-- {{#let (concat  @newsItem._internalModel.modelName '/' (slice-space @newsItem.title)  '?RecordID=' @newsItem.id) as | archiveState|}}
-      <div {{on "click" (fn this.loader1 @newsItem._internalModel.modelName )}} ><div  class="list-title-header"><span>{{@newsItem.field_biography_name}}</span>,<span>{{@newsItem.title}}</span></div></div>
-       {{/let}} --}}
       <div class="bio-body">
         <p>
           {{#if @trimItemBody}}
-            {{html-safe (trim-string @newsItem.body 300)}}...
+            {{html-safe (trim-string @newsItem.body 300)}}
+              <span>...<LinkTo @route="news-room.biography.show"  @model={{@newsItem}}>
+                (<span  class="list-title-header read-more"><span>Read More →</span></span>)
+              </LinkTo></span>
           {{else}}
             {{html-safe @newsItem.body}}
           {{/if}}
@@ -36,7 +40,6 @@
     <br>
   </p>
   {{#let (concat 'news-room''.' @newsItem._internalModel.modelName '.''show') as | archiveState|}}
-
      <LinkTo @route= {{archiveState}}  @model={{@newsItem}}>
         <div  class="list-title-header"><span>{{@newsItem.title}}</span></div>
     </LinkTo>
@@ -49,7 +52,12 @@
       {{/if}}
       <div class="list-wrap-right mt-20 {{if @isIndexPage "multi-media-video mt-0"}}">
             {{#if @trimItemBody}}
-              {{html-safe (trim-string @newsItem.body 300)}}...
+              {{html-safe (trim-string @newsItem.body 300)}}
+                {{#let (concat 'news-room''.' @newsItem._internalModel.modelName '.''show') as | archiveState|}}
+                  <span>... <LinkTo @route= {{archiveState}}  @model={{@newsItem}}>
+                    (<span  class="list-title-header read-more"><span>Read More →</span></span>)
+                  </LinkTo></span>
+                {{/let}}
             {{else}}
               {{html-safe @newsItem.body}}
             {{/if}}
@@ -58,3 +66,5 @@
   </div>
   
 {{/if}}
+{{/if}}
+

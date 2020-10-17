@@ -159,7 +159,7 @@ export default class SideBarComponent extends NewsLoaderComponent {
     },
     {
       label: 'Organization Chart',
-      routeName: '../assets/pdf/br_org_chart.pdf'
+      routeName: './assets/pdf/br_org_chart.pdf'
     },
     {
       label: 'Photos',
