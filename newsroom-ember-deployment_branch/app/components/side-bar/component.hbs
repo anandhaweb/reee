@@ -8,11 +8,11 @@
         {{#if (eq sideBarItem.label 'News & Multimedia')}}
            <li class={{if isRouteIndex "-active"}} {{on "click" (fn this.setMultimedia )}}>{{sideBarItem.label}}</li>
          {{else}}
-          <li
-            class="{{if isRouteActive "-active"}} menu-active" id={{slice-space sideBarItem.label}}
+          <li 
+            class="{{if sideBarItem.filters "left-nav-item"}} {{if isRouteActive "-active"}} menu-active" id={{slice-space sideBarItem.label}}
           >
           {{#if (or (eq sideBarItem.label 'Fact Sheet') (eq sideBarItem.label 'Organization Chart') (eq sideBarItem.label 'Photos') (eq sideBarItem.label 'Multimedia') (eq sideBarItem.label 'Social Media') )}}
-            <a href={{sideBarItem.routeName}} target="_blank" >{{sideBarItem.label}}</a>
+            <a  href={{sideBarItem.routeName}} target="_blank" >{{sideBarItem.label}}</a>
             {{else}}
               {{#if (eq sideBarItem.label 'News Stories')}}
 

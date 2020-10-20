@@ -205,7 +205,13 @@ export default class NewsLoaderComponent extends Component {
   }
   _header(modelName, queryParams, archiveYear, index){
 	  if(queryParams != undefined && queryParams.field_story == '1'){
-		this.header = 'News Stories';
+		if(this.router._router.currentRoute.localName == 'archive') {
+			this.header ='News Stories archive';
+		} else {
+			this.header = 'News Stories';
+		}
+	  } else if(this.router._router.currentRoute.localName == 'archive') {
+		  this.header = modelName +' '+'archive';
 	  } else {
 		this.header = modelName;
 	  }

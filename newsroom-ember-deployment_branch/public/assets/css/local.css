@@ -122,7 +122,20 @@ a#statement_project{
   width: 200px;
 }
 .LeftNav-list>li.-active {
-  padding-bottom: 5px;
+  border: 0 none;
+  padding: 0;
+}
+.LeftNav-list>li.-active {
+
+}
+.left-nav-item .sub-nav-title {
+  border-bottom: 1px solid #c2c2c2;
+}
+.LeftNav-list>.left-nav-item.-active .active {
+  border-top: 1px solid #c2c2c2;
+  display: block;
+  padding-top: 5px;
+  margin: 0;
 }
 .LeftNav-list li {
   cursor: pointer;

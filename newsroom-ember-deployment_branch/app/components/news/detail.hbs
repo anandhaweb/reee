@@ -23,7 +23,7 @@
                     </div>
                     <div>
                         <div class="profile-info">
-                            {{@detailsViewItems.body}}
+                             {{html-safe @detailsViewItems.body}}
                         </div>
                     </div> 
                 </div>
@@ -42,7 +42,7 @@
                 <div class="header">{{@detailsViewItems.field_biography_name}}</div>
                 <div class="header">{{@detailsViewItems.title}}</div>
                 <div class="profile-info">
-                    {{@detailsViewItems.body}}
+                     {{html-safe @detailsViewItems.body}}
                 </div>
                 <div class="pt-20"> Updated: {{moment-format @detailsViewItems.field_date_to_be_published "ll"}}</div>
             </div>
@@ -56,7 +56,7 @@
                 <div class="text-align">{{@detailsViewItems.field_person_giving_speech}}, {{@detailsViewItems.field_region}}</div>
                 <div class="text-align pb-20">{{moment-format @detailsViewItems.field_date_to_be_published "ll"}}</div>
                 <div class="profile-info">
-                    {{@detailsViewItems.body}}
+                     {{html-safe @detailsViewItems.body}}
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
                 <div class="header-2 text-align">{{@detailsViewItems.field_senate_or_house}}</div> 
                 <div class="header-2 text-align">{{moment-format @detailsViewItems.field_date "ll"}}</div> 
                 <div class="profile-info">
-                    {{@detailsViewItems.body}}
+                {{html-safe @detailsViewItems.body}}
                 </div>
             </div>
         </div>

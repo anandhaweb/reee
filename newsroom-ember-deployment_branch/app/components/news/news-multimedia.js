@@ -1,6 +1,7 @@
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import NewsLoaderComponent from '../news/loader';
+import { htmlSafe } from '@ember/template';
 export default class NewsMultimediaComponent extends NewsLoaderComponent {
     @service
     router
